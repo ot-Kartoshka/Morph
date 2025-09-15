@@ -18,7 +18,7 @@ jobs:
       run: sudo apt update && sudo apt install -y g++
 
     - name: Compile
-      run: g++ -std=c++17 -o orderedSet Lab1.cpp
+      run: g++ -std=c++17 -o orderedSet LAB1.cpp
 
     - name: Run program (includes tests)
       run: ./orderedSet
