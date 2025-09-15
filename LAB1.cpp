@@ -2,6 +2,7 @@
 #include <list>
 #include <chrono>
 #include <random>
+#include <cassert>
 
 using namespace std::chrono;
 using namespace std;
@@ -242,8 +243,37 @@ void runUnionBenchmark() {
 	}
 };
 
+void runTests() {
+	orderedSet s;
+	s.Insert(5.0);
+	s.Insert(3.0);
+	s.Insert(7.0);
+
+	assert(s.Search(5.0));
+	assert(s.Search(3.0));
+	assert(!s.Search(10.0));
+
+	s.Delete(3.0);
+	assert(!s.Search(3.0));
+
+	orderedSet a, b;
+	a.Insert(1.0); a.Insert(2.0); a.Insert(3.0);
+	b.Insert(3.0); b.Insert(4.0);
+
+	orderedSet u = orderedSet::Union(a, b);
+	assert(u.Search(1.0));
+	assert(u.Search(4.0));
+	assert(u.Search(3.0));
+
+	orderedSet i = orderedSet::Intersection(a, b);
+	assert(i.Search(3.0));
+	assert(!i.Search(1.0));
+
+	cout << "All tests passed.\n";
+}
+
 int main()
-{	
+{	runTests();
 	orderedSet set1, set2;
 
 	// Заповнення множин випадковими числами
