@@ -335,6 +335,7 @@ int main()
 	cout << "Set 2: ";
 	set2.Print();
 
+	//Test TIME
 	cout << "Search Benchmark (microseconds):\n";
 	runSearchBenchmark();
 	cout << "\nUnion Benchmark (microseconds):\n";
